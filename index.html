@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Интерактивный курс по истории Руси и Восточной Европы от древнейших культур до XXI века">
+<title>Летопись — История Руси</title>
+<style>
+:root{--bg:#080b10;--surface:#10151d;--surface2:#171e28;--line:#283241;--text:#f5f1e8;--muted:#9ca7b5;--gold:#d9ad63;--gold2:#f0cc8b;--green:#67c58a;--red:#e16f6f;--blue:#79a9e8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 70% -10%,#283346 0,#080b10 38%);color:var(--text);font:15px/1.6 Inter,system-ui,-apple-system,Segoe UI,sans-serif}button,input{font:inherit}button{cursor:pointer}
+.top{position:sticky;top:0;z-index:20;background:#080b10dd;border-bottom:1px solid var(--line);backdrop-filter:blur(16px)}.nav{max-width:1240px;margin:auto;padding:13px 20px;display:flex;gap:18px;align-items:center}.brand{font-weight:900;letter-spacing:1px;white-space:nowrap}.brand b{color:var(--gold)}.navlinks{display:flex;gap:8px;margin-left:auto}.navlinks button{background:none;color:var(--muted);border:0;padding:8px 10px}.navlinks button:hover{color:var(--text)}.hamb{display:none;margin-left:auto}
+main{max-width:1240px;margin:auto;padding:38px 20px 90px}.hero{min-height:520px;display:grid;grid-template-columns:1.35fr .65fr;gap:28px;align-items:center}.kicker{color:var(--gold);font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase}.hero h1{font-size:clamp(44px,7vw,84px);line-height:.94;letter-spacing:-3px;margin:14px 0 22px;max-width:800px}.hero p{font-size:18px;color:var(--muted);max-width:690px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.primary,.secondary{border-radius:12px;padding:12px 17px;font-weight:800}.primary{background:var(--gold);color:#161109;border:1px solid var(--gold)}.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--line)}
+.card{background:linear-gradient(145deg,#151c26,#0f141c);border:1px solid var(--line);border-radius:20px;padding:21px;box-shadow:0 18px 55px #0005}.seal{width:190px;height:190px;margin:auto;border-radius:50%;border:1px solid #6b5738;display:grid;place-items:center;background:radial-gradient(circle,#2b2418,#11151c 67%);font-size:64px;color:var(--gold);box-shadow:0 0 70px #d9ad6318}.seal small{display:block;font-size:11px;letter-spacing:2px;color:var(--muted);text-align:center}.progressbar{height:10px;background:#242d38;border-radius:99px;overflow:hidden}.progressbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.stats{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;margin-top:8px}
+section{margin-top:46px}.secthead{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:16px}.secthead h2{margin:0;font-size:30px;letter-spacing:-.5px}.muted{color:var(--muted)}
+.search{display:flex;gap:8px}.search input{width:270px;background:var(--surface);border:1px solid var(--line);border-radius:12px;color:var(--text);padding:11px 13px;outline:none}.search input:focus{border-color:var(--gold)}
+.eras{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.era{min-height:185px;display:flex;flex-direction:column;justify-content:space-between}.era .num{color:var(--gold);font-weight:900;font-size:12px}.era h3{margin:6px 0}.era p{color:var(--muted);font-size:13px;margin:0}.era.done{border-color:#566b58}
+.timeline{display:flex;gap:12px;overflow-x:auto;padding:4px 2px 12px}.time{min-width:190px}.time strong{color:var(--gold);font-size:12px}.time h3{margin:5px 0;font-size:17px}.time p{margin:0;color:var(--muted);font-size:13px}
+.people{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.person h3{margin:8px 0 3px}.person p{margin:0;color:var(--muted);font-size:13px}
+.map{min-height:310px;position:relative;overflow:hidden;background:linear-gradient(135deg,#121b22,#17251f)}.river{position:absolute;left:46%;top:-20%;width:90px;height:145%;background:#234d62;transform:rotate(9deg);border-radius:50%;opacity:.7}.city{position:absolute;border:1px solid var(--gold);background:#0c1117;color:var(--text);padding:7px 10px;border-radius:10px;font-size:12px}.city b{color:var(--gold)}.c1{left:48%;top:32%}.c2{left:36%;top:58%}.c3{left:58%;top:69%}.c4{left:70%;top:47%}.mapnote{position:absolute;left:18px;bottom:16px;color:var(--muted);max-width:430px;font-size:12px}
+.quizbox{max-width:850px}.qmeta{color:var(--gold);font-size:12px;font-weight:900}.question{font-size:22px;font-weight:800;margin:10px 0 18px}.answers{display:grid;gap:9px}.answers button{text-align:left;background:var(--surface2);border:1px solid var(--line);color:var(--text);padding:13px;border-radius:12px}.answers button:hover{border-color:var(--gold)}.answers button.correct{border-color:var(--green);background:#183021}.answers button.wrong{border-color:var(--red);background:#321d20}.feedback{margin-top:14px;font-weight:800}
+.lessonPanel{display:none}.lessonPanel.open{display:block}.lessonPanel h2{font-size:34px;margin:6px 0}.lessonText{max-width:820px;color:#d7dbe1}.lessonText h3{color:var(--gold2);margin-top:25px}.fact{border-left:3px solid var(--gold);padding:12px 16px;background:#17140f;margin:18px 0;color:#ddd}.source{color:var(--muted);font-size:12px}
+.footer{border-top:1px solid var(--line);padding:28px 20px;text-align:center;color:var(--muted)}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.eras{grid-template-columns:repeat(2,1fr)}.people{grid-template-columns:repeat(2,1fr)}.navlinks{display:none}.hamb{display:block;background:none;color:var(--text);border:0}.nav.open .navlinks{display:flex;position:absolute;top:55px;left:0;right:0;background:#0b0f15;padding:10px 20px;border-bottom:1px solid var(--line)}}@media(max-width:600px){main{padding:24px 14px 60px}.hero{min-height:auto}.hero h1{font-size:48px;letter-spacing:-2px}.eras,.people{grid-template-columns:1fr}.search input{width:100%}.secthead{align-items:stretch;flex-direction:column}}
+</style>
+</head>
+<body>
+<header class="top"><nav class="nav" id="nav"><div class="brand">ЛЕТОПИСЬ <b>РУСИ</b></div><div class="navlinks">
+<button onclick="go('course')">Курс</button><button onclick="go('timeline')">Хронология</button><button onclick="go('map')">Карта</button><button onclick="go('people')">Персоналии</button><button onclick="go('quiz')">Тест</button>
+</div><button class="hamb" onclick="nav.classList.toggle('open')">☰</button></nav></header>
+<main>
+<section class="hero">
+<div><div class="kicker">Интерактивная история</div><h1>Понять Русь.<br>Не просто запомнить.</h1><p>Курс начинается задолго до появления Руси и последовательно показывает, как менялись народы, города, государства и политические центры Восточной Европы — до XXI века.</p><div class="actions"><button class="primary" onclick="go('course')">Начать курс</button><button class="secondary" onclick="go('timeline')">Открыть хронологию</button></div></div>
+<div class="card"><div class="seal">☼<small>ЛЕТОПИСЬ<br>ИСТОРИЯ РУСИ</small></div><h3>Твой прогресс</h3><div class="progressbar"><i id="bar"></i></div><div class="stats"><span id="progress">0%</span><span id="xp">0 XP</span></div><p class="muted">Проходи уроки и отвечай на вопросы — прогресс сохраняется автоматически.</p></div>
+</section>
+
+<section id="course"><div class="secthead"><div><div class="kicker">01 — обучение</div><h2>Путь через эпохи</h2></div><div class="search"><input id="search" placeholder="Поиск по курсу…" oninput="renderLessons()"></div></div><div class="eras" id="lessons"></div></section>
+
+<section id="lessonPanel" class="lessonPanel"><div class="card"><div class="kicker" id="lpKicker"></div><h2 id="lpTitle"></h2><div class="lessonText" id="lpText"></div><button class="primary" id="completeBtn">Отметить урок пройденным</button></div></section>
+
+<section id="timeline"><div class="secthead"><div><div class="kicker">02 — время</div><h2>Большая хронология</h2></div><span class="muted">ориентировочная периодизация</span></div><div class="timeline" id="times"></div></section>
+
+<section id="map"><div class="secthead"><div><div class="kicker">03 — пространство</div><h2>Днепр и земли Руси</h2></div></div><div class="card map"><div class="river"></div><div class="city c1"><b>Киев</b><br>Среднее Поднепровье</div><div class="city c2"><b>Запорожье</b><br>Днепровские пороги</div><div class="city c3"><b>Чернигов</b><br>Северское направление</div><div class="city c4"><b>Новгород</b><br>Север Руси</div><div class="mapnote">Схема учебная, не политическая карта. Границы и центры менялись по эпохам.</div></div></section>
+
+<section id="people"><div class="secthead"><div><div class="kicker">04 — личности</div><h2>Кого важно знать</h2></div></div><div class="people" id="peopleGrid"></div></section>
+
+<section id="quiz"><div class="secthead"><div><div class="kicker">05 — проверка</div><h2>Мини-тест</h2></div><span class="muted" id="quizScore"></span></div><div class="card quizbox" id="quizBox"></div></section>
+</main>
+<footer class="footer">Летопись Руси · образовательный проект · История сложнее одной политической версии: спорные вопросы отмечаются отдельно и требуют обращения к источникам.</footer>
+
+<script>
+const lessons=[
+{id:1,title:"До Руси",years:"Палеолит — I тыс. до н.э.",desc:"Самые ранние общества, неолит, земледелие, Триполье и бронзовый век.",text:`<h3>Что было до Руси?</h3><p>История региона начинается за тысячи лет до появления средневековых государств. На территориях современной Украины, России, Беларуси и соседних регионов существовали разные археологические культуры и общества.</p><p>Трипольская культура — крупный комплекс земледельческих поселений энеолита. Позже степная зона стала пространством взаимодействия скотоводов, земледельцев и торговых путей.</p><div class="fact"><b>Главная мысль:</b> «Древняя Русь» не возникла на пустом месте. Ей предшествовали многочисленные культуры и миграции.</div>`},
+{id:2,title:"Степь и древние народы",years:"VII в. до н.э. — VIII в.",desc:"Скифы, сарматы, готы, гунны, авары и Хазарский каганат.",text:`<h3>Степь как исторический коридор</h3><p>Степи Северного Причерноморья связывали Европу и Азию. Здесь сменяли друг друга кочевые объединения, а рядом существовали греческие города-колонии и земледельческие общества лесостепи.</p><p>Скифы и сарматы оставили заметный археологический след. В раннем Средневековье важную роль играли гунны, авары и хазары.</p>`},
+{id:3,title:"Славяне",years:"V–VIII века",desc:"Расселение славян и формирование ранних восточнославянских общностей.",text:`<h3>Кто такие ранние славяне?</h3><p>Славянские группы распространялись по Центральной и Восточной Европе. В письменных источниках поздней античности и раннего Средневековья встречаются названия склавинов и антов.</p><p>Позднейшая летописная традиция перечисляет поляне, древляне, северяне, кривичи, вятичи, радимичи и другие группы. Эти названия нельзя механически превращать в современные нации.</p>`},
+{id:4,title:"Путь к Руси",years:"VIII–IX века",desc:"Торговые пути, Ладога, Новгород, Киев и участие скандинавских групп.",text:`<h3>Русь как процесс</h3><p>В VIII–IX веках активизируются торговые связи между Балтикой, Днепром, Чёрным морем и Византией. Важную роль играли речные маршруты.</p><p>Скандинавские дружины и торговцы взаимодействовали с местным населением. Историки спорят о деталях происхождения названия «Русь» и ранней политической организации.</p><div class="fact"><b>Важно:</b> образование Руси — не одна дата и не одно событие, а длительный процесс.</div>`},
+{id:5,title:"Киевская Русь",years:"IX–XII века",desc:"Олег, Игорь, Ольга, Святослав, Владимир и Ярослав.",text:`<h3>Киевский центр</h3><p>Киев стал одним из главных центров раннего государства. В X веке расширяются связи с Византией и степью.</p><p>При Владимире в конце X века произошло крещение правящей элиты и государства в христианской традиции. При Ярославе усилились книжность, церковные структуры, международные связи и законодательная традиция.</p>`},
+{id:6,title:"Княжеская раздробленность",years:"XII — начало XIII века",desc:"Новые центры: Новгород, Владимиро-Суздальская земля, Галич, Чернигов и другие.",text:`<h3>Почему Русь стала политически раздробленной?</h3><p>Рост отдельных земель, династические конфликты, особенности наследования и развитие местных центров постепенно изменили политическую систему.</p><p>При этом культурные, династические и церковные связи сохранялись. «Раздробленность» не означала исчезновения общей русской культурной традиции.</p>`},
+{id:7,title:"Монгольское нашествие и Орда",years:"XIII–XV века",desc:"Нашествие Батыя, Золотая Орда, княжества и изменение политического баланса.",text:`<h3>Перелом XIII века</h3><p>В 1237–1240 годах войска Монгольской империи разгромили ряд русских княжеств. Киев был взят в 1240 году.</p><p>После этого русские княжества оказались в системе зависимости от Золотой Орды. Князья получали ярлыки, а Москва постепенно усиливала свои позиции.</p>`},
+{id:8,title:"Москва и Московское государство",years:"XIV–XVI века",desc:"Возвышение Москвы, Иван III, Иван IV и централизация.",text:`<h3>Новый политический центр</h3><p>Москва постепенно стала одним из ведущих центров Северо-Восточной Руси. При Иване III усилилась централизация, а в 1480 году произошло противостояние на Угре.</p><p>В XVI веке Иван IV принял царский титул. Государство расширялось на восток и юг, одновременно переживая тяжёлые внутренние конфликты.</p>`},
+{id:9,title:"Империя и революции",years:"XVIII–XX века",desc:"Пётр I, имперский период, реформы, 1905 и 1917 годы.",text:`<h3>От царства к империи</h3><p>В 1721 году Россия официально стала империей. XVIII–XIX века — время территориального расширения, реформ, войн, индустриализации и социальных изменений.</p><p>В 1917 году произошли революции, приведшие к распаду Российской империи и гражданской войне.</p>`},
+{id:10,title:"СССР и XXI век",years:"1917 — настоящее время",desc:"Советское государство, Вторая мировая, холодная война, 1991 и современность.",text:`<h3>XX век и после него</h3><p>СССР прошёл через индустриализацию, массовые репрессии, Вторую мировую войну, восстановление и холодную войну. В 1991 году Советский Союз прекратил существование.</p><p>Современная история России и других постсоветских государств рассматривается здесь как отдельный период с собственными политическими и общественными процессами.</p>`}
+];
+const times=[["до IX тыс. до н.э.","Палеолит","Древнейшие общества"],["V–III тыс. до н.э.","Триполье","Земледельческие поселения"],["VII–III вв. до н.э.","Скифский мир","Степь Северного Причерноморья"],["I–IV вв.","Сарматы","Кочевые объединения"],["V–VIII вв.","Славянские культуры","Расселение славян"],["VIII–IX вв.","Путь к Руси","Торговые сети и ранние центры"],["IX–XII вв.","Киевская Русь","Киевский политический центр"],["XII–XIII вв.","Раздробленность","Рост региональных центров"],["1237–1240","Нашествие","Разрушение ряда княжеств"],["XIII–XV вв.","Золотая Орда","Система зависимости"],["XV–XVI вв.","Москва","Централизация"],["1721–1917","Империя","Российская империя"],["1917–1991","СССР","Советская эпоха"],["1991–н.в.","Современность","Постсоветский период"]];
+const people=[
+["Олег","рубеж IX–X вв.","Князь, связанный с объединением северного и южного центров Руси."],
+["Ольга","X век","Княгиня; реформы управления и дипломатические связи."],
+["Святослав","X век","Военный князь; походы против Хазарии и на Балканы."],
+["Владимир","конец X века","Крещение Руси и укрепление киевского центра."],
+["Ярослав Мудрый","XI век","Законодательная традиция, книжность и международные связи."],
+["Владимир Мономах","XI–XII вв.","Князь киевский, участник борьбы с половцами."],
+["Александр Невский","XIII век","Князь Новгорода и Владимирской земли; сложная политика между Западом и Ордой."],
+["Иван III","XV век","Централизация Московского государства."]
+];
+const questions=[
+["Что было на территории Восточной Европы задолго до Руси?","Много разных археологических культур и обществ",["Только славяне","Много разных археологических культур и обществ","Только викинги","Никаких поселений"]],
+["Кто был одним из главных кочевых соседей Руси в XI–XIII веках?","Половцы",["Половцы","Римляне","Франки","Норманны из Англии"]],
+["Что лучше описывает образование Руси?","Длительный исторический процесс",["Одно событие в 862 году","Длительный исторический процесс","Только завоевание Византии","Создание СССР"]],
+["Кто связан с Крещением Руси в конце X века?","Владимир",["Святослав","Ярослав","Владимир","Иван III"]],
+["В каком году Киев был взят войсками Батыя?","1240",["988","1054","1240","1380"]]
+];
+let state=JSON.parse(localStorage.getItem("letopisRusi")||'{"done":[],"xp":0,"quiz":0}');
+const $=s=>document.querySelector(s);
+function save(){localStorage.setItem("letopisRusi",JSON.stringify(state))}
+function go(id){document.getElementById(id).scrollIntoView({behavior:"smooth"});document.querySelector(".nav").classList.remove("open")}
+function renderStats(){let pct=Math.round(state.done.length/lessons.length*100);$("#bar").style.width=pct+"%";$("#progress").textContent=pct+"%";$("#xp").textContent=state.xp+" XP"}
+function renderLessons(){let q=$("#search").value.toLowerCase();$("#lessons").innerHTML=lessons.filter(x=>(x.title+x.desc+x.years).toLowerCase().includes(q)).map(x=>`<article class="card era ${state.done.includes(x.id)?"done":""}"><div><span class="num">${String(x.id).padStart(2,"0")} · ${x.years}</span><h3>${x.title}</h3><p>${x.desc}</p></div><button class="${state.done.includes(x.id)?"secondary":"primary"}" onclick="openLesson(${x.id})">${state.done.includes(x.id)?"✓ Пройден":"Изучить"}</button></article>`).join("")||'<div class="muted">Ничего не найдено.</div>'}
+function openLesson(id){let l=lessons.find(x=>x.id===id);$("#lpKicker").textContent=`УРОК ${String(l.id).padStart(2,"0")} · ${l.years}`;$("#lpTitle").textContent=l.title;$("#lpText").innerHTML=l.text;$("#completeBtn").textContent=state.done.includes(id)?"✓ Урок пройден":"Отметить урок пройденным";$("#completeBtn").onclick=()=>complete(id);$("#lessonPanel").classList.add("open");go("lessonPanel")}
+function complete(id){if(!state.done.includes(id)){state.done.push(id);state.xp+=100;save();renderLessons();renderStats();}$("#completeBtn").textContent="✓ Урок пройден"}
+function renderTimeline(){$("#times").innerHTML=times.map(x=>`<article class="card time"><strong>${x[0]}</strong><h3>${x[1]}</h3><p>${x[2]}</p></article>`).join("")}
+function renderPeople(){$("#peopleGrid").innerHTML=people.map(x=>`<article class="card person"><span class="kicker">${x[1]}</span><h3>${x[0]}</h3><p>${x[2]}</p></article>`).join("")}
+let qi=0,quizCorrect=0;
+function renderQuiz(){let q=questions[qi%questions.length];$("#quizScore").textContent=`${quizCorrect} правильных`;$("#quizBox").innerHTML=`<span class="qmeta">ВОПРОС ${qi+1} / ${questions.length}</span><div class="question">${q[0]}</div><div class="answers">${q[2].map(a=>`<button onclick="answer(this,${JSON.stringify(a)},${JSON.stringify(q[1])})">${a}</button>`).join("")}</div><div class="feedback" id="feedback"></div>`}
+function answer(btn,a,right){document.querySelectorAll(".answers button").forEach(b=>b.disabled=true);if(a===right){btn.classList.add("correct");$("#feedback").innerHTML='<span style="color:var(--green)">Правильно! +50 XP</span>';state.xp+=50;quizCorrect++;state.quiz++}else{btn.classList.add("wrong");$("#feedback").innerHTML=`<span style="color:var(--red)">Не совсем.</span> Правильный ответ: ${right}`}save();renderStats();setTimeout(()=>{qi=(qi+1)%questions.length;renderQuiz()},1000)}
+function resetAll(){if(confirm("Сбросить весь прогресс?")){state={done:[],xp:0,quiz:0};save();renderLessons();renderStats();renderQuiz()}}
+renderLessons();renderTimeline();renderPeople();renderQuiz();renderStats();
+</script>
+</body>
+</html>
